@@ -44,9 +44,9 @@
 
 #### Starting Point: Initial Design Draft:
 <i>This is a draft design of the system architecture with start-point processes, which will be refined as we progress through the documentation and development phases.  
-Process initiators are divided on two groups now: customer-side and administrator-side. Therefore there might be a need to introduce two separate GUI for them.</i>
+Process initiators are divided on two groups now: customer-side and administrator-side. Therefore, there might be a need to introduce two separate GUI for them.</i>
 
-![image](images/initial-design.png)
+![image](images/initial-design-detailed.png "Initial Design Draft")
 
 <i>Starting from red bordered hexagonal we will be defining main server side, backend components and services, communication between them and main aggregates within their contexts.</i>
 
