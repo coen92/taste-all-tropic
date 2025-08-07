@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/order-management-service/order-management-service.iml" filepath="$PROJECT_DIR$/order-management-service/order-management-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/taste-all-tropic.iml" filepath="$PROJECT_DIR$/.idea/taste-all-tropic.iml" />
     </modules>
   </component>
