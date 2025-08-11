@@ -1,6 +1,16 @@
 spring.application.name: order-management-service
 
 spring:
+  data:
+    jdbc:
+      repositories:
+        enabled: true
+      dialect: postgresql
   docker:
     compose:
       enabled: false # Setting docker environment to false for production
+  flyway:
+    enabled: true
+    # locations: classpath:db/migration # If necessary.
+    baseline-on-migrate: true
+    baseline-version: 1
