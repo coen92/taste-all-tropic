@@ -13,6 +13,7 @@ public class CustomerOrder {
     // mutable properties
     private OrderStatus status;
     private OrderItems items;
+    // price, delivery address, payment method, etc. can be added later
 
     private CustomerOrder(CustomerId customerId) {
         this.customerId = customerId;
@@ -21,8 +22,19 @@ public class CustomerOrder {
         this.items = new OrderItems();
     }
 
+    // factory methods for behavioral scenarios on aggregate
     public static CustomerOrder create(CustomerId customerId) {
         return new CustomerOrder(customerId);
+    }
+
+
+    // methods to expose protected aggregate details
+    public List<OrderItem> getOrderItems() {
+        return items.items;
+    }
+
+    public String getOrderCurrentStatus() {
+        return status.name();
     }
 
     private enum OrderStatus {

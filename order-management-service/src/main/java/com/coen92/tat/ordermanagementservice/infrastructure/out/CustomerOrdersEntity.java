@@ -8,12 +8,13 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.annotation.Version;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.UUID;
 
 @Builder(access = AccessLevel.PACKAGE)
-public class CustomerOrderEntity {
+class CustomerOrdersEntity {
     @Id
-    private UUID orderId;
+    private UUID customerId;
 
     @CreatedDate
     private Timestamp createdAt;
@@ -24,8 +25,24 @@ public class CustomerOrderEntity {
 
     private CustomerOrderPayload payload;
 
+    @Builder(access = AccessLevel.PACKAGE, toBuilder = true)
     record CustomerOrderPayload(
-            // todo: fill with actual fields
+            List<OrderEntity> orders
+    ) {
+    }
+
+    @Builder(access = AccessLevel.PACKAGE, toBuilder = true)
+    record OrderEntity(
+            UUID orderId,
+            List<ItemEntity> items,
+            String status
+    ) {
+    }
+
+    @Builder(access = AccessLevel.PACKAGE, toBuilder = true)
+    record ItemEntity(
+            UUID itemId,
+            String itemType
     ) {
     }
 }

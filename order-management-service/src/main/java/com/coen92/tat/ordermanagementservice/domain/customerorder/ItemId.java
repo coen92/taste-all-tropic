@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
 import java.util.UUID;
 
 @EqualsAndHashCode(callSuper = true)
-class ItemId extends ValueObject<UUID> {
+public class ItemId extends ValueObject<UUID> {
     protected ItemId(UUID value) {
         super(value);
     }
