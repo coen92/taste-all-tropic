@@ -4,6 +4,6 @@ import org.springframework.data.repository.ListCrudRepository;
 
 import java.util.UUID;
 
-public interface OrderJdbcRepository extends ListCrudRepository<CustomerOrderEntity, UUID> {
+public interface OrderJdbcRepository extends ListCrudRepository<CustomerOrdersEntity, UUID> {
 
 }

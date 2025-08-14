@@ -7,6 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
 import java.time.Clock;
+import java.util.List;
+
+import static com.coen92.tat.ordermanagementservice.infrastructure.out.CustomerOrdersEntity.*;
 
 @Repository
 @RequiredArgsConstructor
@@ -19,15 +22,22 @@ public class OrderRepositoryImpl implements OrderRepository {
         repository.save(toEntity(order));
     }
 
-    private CustomerOrderEntity toEntity(CustomerOrder order) {
-        return CustomerOrderEntity.builder()
-                .orderId(order.getOrderId().getValue())
+    private CustomerOrdersEntity toEntity(CustomerOrder order) {
+        OrderEntity customerOrder = new OrderEntity(order.getOrderId().getValue(),
+                order.getOrderItems().stream()
+                        .map(item -> new ItemEntity(item.getId().getValue(), item.getType().name()))
+                        .toList(),
+                order.getOrderCurrentStatus()
+        );
+
+        return builder()
+                .customerId(order.getCustomerId().getValue())
                 .createdAt(Timestamp.from(clock.instant()))
                 .updatedAt(Timestamp.from(clock.instant()))
                 .version(0)
-                .payload(new CustomerOrderEntity.CustomerOrderPayload(
-                        // todo: fill with actual fields
-                ))
+                .payload(CustomerOrderPayload.builder()
+                        .orders(List.of(customerOrder))
+                        .build())
                 .build();
     }
 }
