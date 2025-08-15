@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit moduleName="order-management-service" name="order-management-service" framework="Spring Data JDBC" ormUnit="order-management-service" defaultDataSourceId="b93a5b63-a795-4b30-97bb-6884e7c95195" />
+    </persistence-units>
+  </component>
+</project>
