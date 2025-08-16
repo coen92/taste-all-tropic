@@ -1,11 +1,6 @@
 spring.application.name: order-management-service
 
 spring:
-  data:
-    jdbc:
-      repositories:
-        enabled: true
-      dialect: postgresql
   docker:
     compose:
       enabled: false # Setting docker environment to false for production
